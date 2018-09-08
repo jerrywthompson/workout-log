@@ -29,7 +29,9 @@
 			<?php
 				include('conn.php');
 				
-				$query=mysqli_query($conn,"select * from `log`");
+				$queryText = "select * from log order by date desc";
+				// $queryText = "select * from log group by user, exercise order by user desc, date desc";
+				$query=mysqli_query($conn, $queryText);
 				while($row=mysqli_fetch_array($query)){
                     $date=date_create($row['date']);
                     $date=date_format($date,"m/d/Y");
