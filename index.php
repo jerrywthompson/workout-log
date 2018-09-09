@@ -14,6 +14,7 @@
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
 	<span style="font-size:25px; color:blue"><center><strong>Workout Log</strong></center></span>	
 		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
+		<span class="pull-right"><a href="http://jerrythompson.website/workout/datatables/" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Data Tables</a></span>
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
@@ -34,7 +35,8 @@
 				$query=mysqli_query($conn, $queryText);
 				while($row=mysqli_fetch_array($query)){
                     $date=date_create($row['date']);
-                    $date=date_format($date,"m/d/Y");
+					$date=date_format($date,"m/d/Y");
+					// var_dump($row);
           ?>
         
 					<tr>
