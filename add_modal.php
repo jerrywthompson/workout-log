@@ -29,7 +29,7 @@
 								<input type="radio" id="jerry" name="user" value="Jerry" /> Jerry
 							</label>
 							<label class="btn my-btn">
-								<input type="radio" id="Cindy" name="user" value="Cindy" /> Cindy
+								<input type="radio" id="cindy" name="user" value="Cindy" /> Cindy
 							</label>
 						</div>
 					</div>
@@ -61,7 +61,6 @@
 							</label>
 						</div>
 					</div>
-					<div style="height:20px;"></div>
 					<div class="row">
 						<div class="col-lg-2">
 							<label class="control-label" style="position:relative; top:2px;">Reps:</label>
