@@ -15,7 +15,7 @@
 
 
 
-$db = new SQLite3('../db/workout.db');
+$db = new SQLite3('db/workout.db');
 
 
 $sql = "SELECT * FROM log";
