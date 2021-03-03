@@ -14,7 +14,7 @@
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
 	<span style="font-size:25px; color:blue"><center><strong>Last Workout Sets</strong></center></span>	
 		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
-		<span class="pull-right"><a href="datatables/" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Data Tables</a></span>
+		<span class="pull-right"><a href="http://jerrythompson.website/workout/datatables/" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Data Tables</a></span>
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
@@ -28,20 +28,15 @@
 			</thead>
 			<tbody>
 			<?php
-				// include('conn.php');
-				include_once('SQLLight3.php');
-				include_once('SQL.php');
-				include_once('echoOutput.php');
+				include('conn.php');
 				
-					$db = new SQLite3('db/workout.db');
-
-					$sql = "select * from log group by user, exercise order by user desc, date desc";
-					$res = $db->query($sql);
-					
-					while ($row = $res->fetchArray()) {
-						// var_dump($row);
-						$date=date_create($row['date']);
-						$date=date_format($date,"m/d/Y");	
+				$queryText = 'SELECT * from log where DATE_FORMAT(date, "%Y/%m/%d") = (SELECT max(DATE_FORMAT(date, "%Y/%m/%d")) from log) ORDER BY date desc';
+				// $queryText = "select * from log group by user, exercise order by user desc, date desc";
+				$query=mysqli_query($conn, $queryText);
+				while($row=mysqli_fetch_array($query)){
+                    $date=date_create($row['date']);
+					$date=date_format($date,"m/d/Y");
+					// var_dump($row);
           ?>
         
 					<tr>
